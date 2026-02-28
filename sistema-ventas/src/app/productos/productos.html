@@ -1,0 +1,24 @@
+<h2>Productos</h2>
+
+<form (ngSubmit)="guardar()">
+  <input [(ngModel)]="nuevo.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevo.descripcion" name="descripcion" placeholder="Descripción">
+  <input type="number" [(ngModel)]="nuevo.precio" name="precio" placeholder="Precio">
+  <input type="number" [(ngModel)]="nuevo.stock" name="stock" placeholder="Stock">
+  <button type="submit">Guardar</button>
+</form>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Stock</th>
+  </tr>
+  <tr *ngFor="let p of productos; let i = index">
+  <td>{{i}}</td>
+  <td>{{p.nombre}}</td>
+  <td>{{p.precio}}</td>
+  <td>{{p.stock}}</td>
+  </tr>
+</table>
