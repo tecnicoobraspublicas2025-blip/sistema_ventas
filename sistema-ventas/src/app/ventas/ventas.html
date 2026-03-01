@@ -1,0 +1,40 @@
+<h2>Ventas</h2>
+
+<form (ngSubmit)="guardar()">
+
+  <select [(ngModel)]="nueva.clienteId" name="clienteId" required>
+    <option value="0">Seleccione Cliente</option>
+    <option *ngFor="let c of clientes" [value]="c.clienteId">
+      {{c.nombre}} {{c.apellido}}
+    </option>
+  </select>
+
+  <select [(ngModel)]="nueva.productoId" name="productoId" required>
+    <option value="0">Seleccione Producto</option>
+    <option *ngFor="let p of productos" [value]="p.productoId">
+      {{p.nombre}} - Stock: {{p.stock}}
+    </option>
+  </select>
+
+  <input type="number" [(ngModel)]="nueva.cantidad" name="cantidad" min="1" required>
+
+  <button type="submit">Vender</button>
+</form>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Producto</th>
+    <th>Cantidad</th>
+    <th>Total</th>
+  </tr>
+
+  <tr *ngFor="let v of ventas">
+    <td>{{v.ventaId}}</td>
+    <td>{{v.cliente?.nombre}} {{v.cliente?.apellido}}</td>
+    <td>{{v.producto?.nombre}}</td>
+    <td>{{v.cantidad}}</td>
+    <td>{{v.total}}</td>
+  </tr>
+</table><p>ventas works!</p>
