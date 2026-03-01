@@ -1,0 +1,26 @@
+<h2>Clientes</h2>
+
+<form (ngSubmit)="guardar()">
+  <input [(ngModel)]="nuevo.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="nuevo.apellido" name="apellido" placeholder="Apellido" required>
+  <input [(ngModel)]="nuevo.email" name="email" placeholder="Email">
+  <input [(ngModel)]="nuevo.telefono" name="telefono" placeholder="Teléfono">
+  <button type="submit">Guardar</button>
+</form>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Email</th>
+    <th>Teléfono</th>
+  </tr>
+  <tr *ngFor="let c of clientes">
+    <td>{{c.clienteId}}</td>
+    <td>{{c.nombre}}</td>
+    <td>{{c.apellido}}</td>
+    <td>{{c.email}}</td>
+    <td>{{c.telefono}}</td>
+  </tr>
+</table>
